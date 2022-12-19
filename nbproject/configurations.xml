@@ -12,7 +12,6 @@
       <itemPath>f-minor-scale.h</itemPath>
       <itemPath>icinde-ask-var.h</itemPath>
       <itemPath>pwm1.h</itemPath>
-      <itemPath>askin-olayim.h</itemPath>
       <itemPath>pwm2.h</itemPath>
       <itemPath>pwm.h</itemPath>
     </logicalFolder>

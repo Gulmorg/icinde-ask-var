@@ -17,12 +17,6 @@
 #include "config.h"
 #include <xc.h>
 
-// Modules
-#include "tmr2.h"
-#include "pwm.h"
-#include "pwm1.h"
-//#include "pwm2.h"
-#include "tmr0.h"
 
 // Pins
 #define SONG_SELECT_1 RB0
@@ -44,12 +38,20 @@ unsigned char _volume = 0;
 unsigned int _ledDuty = 0;
 unsigned int _metronome = 130;
 unsigned int _period = 0;
+unsigned long _pwmFreq = 0;
 double _beatsPerBar = 4;
 double _beatValue = 4;
 double _beatLength = 0;
 unsigned int _ledOnDuration = 0;
 unsigned int _ledOffDuration = 0;
 __bit ledOn = 0;
+
+// Modules
+#include "tmr2.h"
+#include "pwm.h"
+#include "pwm1.h"
+#include "pwm2.h"
+#include "tmr0.h"
 
 // Song Files
 #include "icinde-ask-var.h"
