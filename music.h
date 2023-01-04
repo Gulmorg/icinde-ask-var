@@ -12,7 +12,6 @@ void play_silence(double duration) {
     pwm1_set_volume(0);
     _buzzerCounter = 0;
     while (_buzzerCounter < (int) duration);
-
 }
 
 void play_note(double freq, double duration) {
