@@ -1,6 +1,6 @@
 /*
  * File:   icinde-ask-var.h
- * Author: Utku Do?anay
+ * Author: Utku
  *
  * Created on December 12, 2022, 14:12 AM
  */
@@ -23,10 +23,10 @@ void icinde_ask_var_init(void) {
 
 void intro(void) {
     // Bar 0
-    play_note_volume(1200, _ledOnDuration, _volume);
+    play_note_volume(1200, _ledOnDuration, 0);
     play_silence(_ledOffDuration);
     for (unsigned char i = 0; i < (_beatsPerBar - 2); i++) {
-        play_note_volume(900, _ledOnDuration, _volume);
+        play_note_volume(900, _ledOnDuration, 0);
         play_silence(_ledOffDuration);
     }
     play_note(Fm2, _beatLength); // Ca-
@@ -69,9 +69,9 @@ void intro(void) {
     play_silence(_beatLength * 3);
     // Bar 8
     play_silence(_beatLength * 4);
-    play_note_cut(Fm1, _beatLength); // De
+    play_note_cut(Fm1, _beatLength / 2); // De
     play_note_cut(Fm2, _beatLength / 2); // lik
-    play_silence(_beatLength / 2);
+    play_silence(_beatLength);
     // Bar 9
     play_note_cut(Fm3, _beatLength * 2); // siz
     play_silence(_beatLength * 4);
@@ -81,7 +81,7 @@ void intro(void) {
     play_note_cut(Fm4, _beatLength / 2); // ku
     play_note_cut(Fm3, _beatLength / 2); // la
     // Bar 11
-    play_note_cut(Fm3, _beatLength); // rım
+    play_note_cut(Fm3, _beatLength); // rın
     play_note_cut(Fm2, _beatLength); // dan
     play_silence(_beatLength * 4);
     // Bar 12

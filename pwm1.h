@@ -20,7 +20,7 @@ void pwm1_set_volume(unsigned int duty) {
         RC2 = 1;
     } else {
         pwm1_enable();
-        duty = (unsigned int) pwm_get_duty(duty);
+        unsigned int duty = pwm_calculate_duty(duty);
         if (duty == 0) duty = 1;
         CCP1CONbits.DC1B1 = duty & 2;
         CCP1CONbits.DC1B0 = duty & 1;

@@ -17,8 +17,8 @@
 #define Ab3     208
 #define A3      220
 #define As3     233
-#define Bb3     233 // Not possible above this with 64x prescaler
-#define B3      247 // TODO: Set up custom pwm with Timer1 interrupts
+#define Bb3     233
+#define B3      247
 #define C4      262
 #define Cs4     277
 #define Db4     277

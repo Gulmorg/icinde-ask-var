@@ -1,6 +1,6 @@
 /*
  * File:   tmr0.h
- * Author: Utku Do?anay
+ * Author: Utku
  *
  * Created on December 2, 2022, 9:32 AM
  */
@@ -20,6 +20,8 @@ void tmr0_init(void) {
 #if (TMR0RESET > 255 || TMR0RESET < 0)
 #error TMR0RESET can only take values 0 through 255
 #endif
+#else
+#define TMR0RESET 0
 #endif
 
     // Set Timer0 Prescaler
@@ -50,26 +52,9 @@ void tmr0_init(void) {
     OPTION_REGbits.T0CS = 0;
 }
 
-void tmr0_enable(void) {
-    INTCONbits.GIE = 1;
-    INTCONbits.T0IE = 1;
-    INTCONbits.T0IF = 0;
-#ifdef TMR0RESET
-    TMR0 = TMR0RESET;
-#else
-    TMR0 = 0;
-#endif
-}
+#define tmr0_enable() INTCONbits.GIE = 1; INTCONbits.T0IE = 1; INTCONbits.T0IF = 0; TMR0 = TMR0RESET
+#define tmr0_disable() INTCONbits.T0IE = 0
+#define tmr0_reset() INTCONbits.T0IF = 0; TMR0 = TMR0RESET
 
-void tmr0_disable(void) {
-    INTCONbits.T0IE = 0;
-}
-
-void tmr0_reset(void) {
-    INTCONbits.T0IF = 0;
-#ifdef TMR0RESET
-    TMR0 = TMR0RESET;
-#endif
-}
 
 #endif

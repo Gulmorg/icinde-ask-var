@@ -1,6 +1,6 @@
 /*
  * File:   main.c
- * Author: Utku Do?anay
+ * Author: Utku
  *
  * Created on December 14, 2022, 15:27 AM
  */
