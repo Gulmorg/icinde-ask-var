@@ -54,7 +54,8 @@ __bit ledOn = 0;
 #include "tmr0.h"
 
 // Song Files
-#include "icinde-ask-var.h"
+#include "dgko.h"
+//#include "icinde-ask-var.h"
 
 void __interrupt() led_isr() {
     if (INTCONbits.T0IF) {
@@ -90,7 +91,7 @@ void main(void) {
 
     // Set volume
     _volume = (unsigned char) (((int) VOLUME_4 << 4) + ((int) VOLUME_3 << 3) + ((int) VOLUME_2 << 2) + ((int) VOLUME_1 << 1) + ((int) VOLUME_0)) + 1;
-
+_volume = 1;
     tmr0_init();
     tmr2_init();
 
@@ -98,12 +99,10 @@ void main(void) {
     tmr2_enable();
     pwm1_enable();
 
-    icinde_ask_var_init();
-    icinde_ask_var_play();
-
-    tmr0_disable();
-    tmr2_disable();
-    pwm1_disable();
+    dgko_init();
+    dgko_play();
+    //icinde_ask_var_init();
+    //icinde_ask_var_play();
 
     while (1);
 }

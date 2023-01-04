@@ -342,6 +342,12 @@ void outro(void) {
     play_silence(_beatLength * 2);
 }
 
+void finalize(void) {
+    tmr0_disable();
+    tmr2_disable();
+    pwm1_disable();
+}
+
 void icinde_ask_var_play(void) {
     intro();
     verse();
@@ -351,5 +357,7 @@ void icinde_ask_var_play(void) {
     pre_chorus();
     chorus();
     outro();
+
+    finalize();
 }
 
