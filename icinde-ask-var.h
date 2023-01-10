@@ -15,7 +15,6 @@
 
 void icinde_ask_var_init(void) {
     _metronome = ICINDE_ASK_VAR_METRONOME;
-    _beatsPerBar = ICINDE_ASK_VAR_BEATS_PER_BAR;
     _beatLength = 60000 / _metronome;
     _ledOnDuration = (unsigned int) (_beatLength / 8);
     _ledOffDuration = (unsigned int) (_beatLength - _ledOnDuration);
@@ -23,12 +22,7 @@ void icinde_ask_var_init(void) {
 
 void intro(void) {
     // Bar 0
-    play_note_volume(1200, _ledOnDuration, 0);
-    play_silence(_ledOffDuration);
-    for (unsigned char i = 0; i < (_beatsPerBar - 2); i++) {
-        play_note_volume(900, _ledOnDuration, 0);
-        play_silence(_ledOffDuration);
-    }
+    play_silence(_beatLength * 5);
     play_note(Fm2, _beatLength); // Ca-
     // Bar 1
     play_note(Fm3, _beatLength); // -nım
@@ -98,7 +92,7 @@ void intro(void) {
     play_silence(_beatLength * 12);
 }
 
-void verse(void) {//TOD: Fix
+void verse(void) {
     // Bar 16
     play_silence(_beatLength * 5);
     play_note(Fm2, _beatLength); // Ya-

@@ -50,7 +50,6 @@ __bit ledOn = 0;
 #include "tmr2.h"
 #include "pwm.h"
 #include "pwm1.h"
-#include "pwm2.h"
 #include "tmr0.h"
 
 // Song Files
