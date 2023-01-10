@@ -16,7 +16,7 @@ void play_silence(double duration) {
 
 void play_note(double freq, double duration) {
     pwm_set_freq(freq);
-    pwm1_set_volume(_volume);
+    pwm1_set_volume(VOLUME);
     pwm1_enable();
     _buzzerCounter = 0;
     while (_buzzerCounter < (int) duration);
@@ -25,7 +25,7 @@ void play_note(double freq, double duration) {
 
 void play_note_cut(double freq, double duration) {
     pwm_set_freq(freq);
-    pwm1_set_volume(_volume);
+    pwm1_set_volume(VOLUME);
     pwm1_enable();
     _buzzerCounter = 0;
     while (_buzzerCounter < (int) duration - 50);
