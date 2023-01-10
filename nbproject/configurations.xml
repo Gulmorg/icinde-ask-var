@@ -5,14 +5,11 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>config.h</itemPath>
-      <itemPath>tmr0.h</itemPath>
-      <itemPath>tmr2.h</itemPath>
       <itemPath>music.h</itemPath>
       <itemPath>chromatic-scale.h</itemPath>
       <itemPath>f-minor-scale.h</itemPath>
       <itemPath>icinde-ask-var.h</itemPath>
       <itemPath>pwm1.h</itemPath>
-      <itemPath>pwm2.h</itemPath>
       <itemPath>pwm.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"

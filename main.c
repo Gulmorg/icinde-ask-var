@@ -25,7 +25,8 @@ unsigned int _buzzerCounter = 0;
 unsigned int _ledCounter = 0;
 
 // Song Specs
-#define BEAT_LENGTH  320 // 187.5bpm (smallest possible notes without de-sync are 64th )
+unsigned int _beatLength = 320;
+#define BEAT_LENGTH 320 // 187.5bpm (smallest possible notes without de-sync are 64th )
 #define LED_ON_DURATION 40
 
 // Modules
@@ -46,7 +47,7 @@ void __interrupt() led_isr() {
 
         if (_ledCounter == LED_ON_DURATION) {
             LED = 0;
-        } else if (_ledCounter == BEAT_LENGTH) {
+        } else if (_ledCounter == _beatLength) {
             LED = 1;
             _ledCounter = 0;
         }
@@ -87,8 +88,8 @@ void main(void) {
     play_song();
 
     // Disables
-    INTCONbits.T0IE = 0; // Disable Timer0
-    T2CONbits.TMR2ON = 0; // Disable Timer2
+    INTCONbits.T0IE = 0; // Timer0 interrupt disable
+    T2CONbits.TMR2ON = 0; // Timer2 disable
     pwm1_disable();
 
     while (1);

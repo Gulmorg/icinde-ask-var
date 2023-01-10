@@ -8,13 +8,13 @@
 #ifndef MUSIC_H
 #define	MUSIC_H
 
-void play_silence(double duration) {
+void play_silence(unsigned int duration) {
     pwm1_set_volume(0);
     _buzzerCounter = 0;
     while (_buzzerCounter < (int) duration);
 }
 
-void play_note(double freq, double duration) {
+void play_note(unsigned int freq, unsigned int duration) {
     pwm_set_freq(freq);
     pwm1_set_volume(VOLUME);
     pwm1_enable();
@@ -23,7 +23,7 @@ void play_note(double freq, double duration) {
     pwm1_disable();
 }
 
-void play_note_cut(double freq, double duration) {
+void play_note_cut(unsigned int freq, unsigned int duration) {
     pwm_set_freq(freq);
     pwm1_set_volume(VOLUME);
     pwm1_enable();
