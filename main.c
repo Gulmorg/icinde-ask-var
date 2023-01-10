@@ -24,23 +24,22 @@
 unsigned int _buzzerCounter = 0;
 unsigned int _ledCounter = 0;
 
-// Variables
-unsigned int _pwmFreq = 0;
+// Song Specs
 #define BEAT_LENGTH  320 // 187.5bpm (smallest possible notes without de-sync are 64th )
 #define LED_ON_DURATION 40
 
 // Modules
-#include "tmr2.h"
 #include "pwm.h"
 #include "pwm1.h"
-#include "tmr0.h"
 
 // Song Files
 #include "icinde-ask-var.h"
 
 void __interrupt() led_isr() {
     if (INTCONbits.T0IF) {  // Not needed?
-        tmr0_reset();
+        // Reset Timer0
+        INTCONbits.T0IF = 0;
+        TMR0 = TMR0RESET;
 
         _buzzerCounter++;
         _ledCounter++;
@@ -72,19 +71,24 @@ void main(void) {
     OPTION_REGbits.PS = 0b011; // Prescaler is 16
     OPTION_REGbits.T0SE = 0; // Interrupt on rising edge
     OPTION_REGbits.T0CS = 0; // Clock source is internal oscillator
+    INTCONbits.T0IF = 0; // Clear Timer0 flag
+    TMR0 = TMR0RESET; // Reset Timer0 to the preset reset value (6 for 1ms interrupts)
 
     // Timer2 Config
     T2CONbits.T2CKPS = 0b11; // Prescaler is 64
+    TMR2 = 0; // Clear Timer2 register
 
+    // Enables
     INTCONbits.GIE = 1; // Global interrupt enable
-    tmr0_enable();
-    tmr2_enable();
+    INTCONbits.T0IE = 1; // Timer0 interrupt enable
+    T2CONbits.TMR2ON = 1; // Timer2 enable
     pwm1_enable();
 
     play_song();
 
-    tmr0_disable();
-    tmr2_disable();
+    // Disables
+    INTCONbits.T0IE = 0; // Disable Timer0
+    T2CONbits.TMR2ON = 0; // Disable Timer2
     pwm1_disable();
 
     while (1);

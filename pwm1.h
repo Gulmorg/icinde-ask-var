@@ -17,7 +17,6 @@ void pwm1_set_volume(unsigned int duty) {
     CCP1CONbits.DC1B1 = duty & 2;
     CCP1CONbits.DC1B0 = duty & 1;
     CCPR1L = (unsigned char) (duty >> 2);
-
 }
 
 #endif
