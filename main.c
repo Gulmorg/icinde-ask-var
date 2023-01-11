@@ -9,10 +9,6 @@
 #define TMR0RESET 6
 #define TMR0PRESCALE 0b001
 
-#define TMR2PRESCALE 64
-
-#define _XTAL_FREQ 4000000
-
 #define VOLUME 1
 
 // Configuration
