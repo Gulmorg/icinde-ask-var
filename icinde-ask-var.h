@@ -5,9 +5,6 @@
  * Created on December 12, 2022, 14:12 AM
  */
 
-// Song Metronome
-#define ICINDE_ASK_VAR_METRONOME       200
-
 #include "music.h"
 #include "f-minor-scale.h"
 
