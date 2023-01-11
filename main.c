@@ -9,7 +9,7 @@
 
 #define TMR2PRESCALE 64
 
-#define _XTAL_FREQ 16000000
+#define _XTAL_FREQ 4000000
 
 #define VOLUME 1
 
@@ -25,7 +25,6 @@ unsigned int _buzzerCounter = 0;
 unsigned int _ledCounter = 0;
 
 // Song Specs
-unsigned int _beatLength = 320;
 #define BEAT_LENGTH 320 // 187.5bpm (smallest possible notes without de-sync are 64th )
 #define LED_ON_DURATION 40
 
@@ -47,7 +46,7 @@ void __interrupt() led_isr() {
 
         if (_ledCounter == LED_ON_DURATION) {
             LED = 0;
-        } else if (_ledCounter == _beatLength) {
+        } else if (_ledCounter == BEAT_LENGTH) {
             LED = 1;
             _ledCounter = 0;
         }
@@ -56,7 +55,7 @@ void __interrupt() led_isr() {
 
 void main(void) {
     // Set IOSC Frequency
-    OSCCONbits.IRCF = 0b1111; // 16MHz
+    OSCCONbits.IRCF = 0b1101; // 4MHz
 
     // Analog unit and analog ports are off
     ADCON0bits.ADON = 0;
