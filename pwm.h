@@ -10,10 +10,6 @@
 
 #define PWM_MAX_DUTY 1023
 
-void pwm_set_freq(unsigned int freq) {
-    PR2 = (unsigned char) ((_XTAL_FREQ / (freq * 4 * TMR2PRESCALE)) - 1);
-}
-
 unsigned int pwm_calculate_duty(unsigned int duty) {
     return (unsigned int) ((duty * 4 * (PR2 + 1)) / PWM_MAX_DUTY);
 }

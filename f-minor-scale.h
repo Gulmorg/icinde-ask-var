@@ -1,21 +1,23 @@
 #ifndef F_MINOR_SCALE_H
 #define	F_MINOR_SCALE_H
 
-#define Fm1     349.23
-#define Fm2     392.00
-#define Fm3     415.30
-#define Fm4     466.00
-#define Fm5     523.25
-#define Fm6     554.37
-#define Fm7     622.25
-#define Fm8     698.46
-#define Fm9     783.99
-#define Fm10    830.61
-#define Fm11    932.33
-#define Fm12    1046.50
-#define Fm13    1108.73
-#define Fm14    1244.51
-#define Fm15    1396.91
+#include "chromatic-scale.h"
+
+#define Fm1     F4
+#define Fm2     G4
+#define Fm3     Ab4
+#define Fm4     Bb4
+#define Fm5     C5
+#define Fm6     Db5
+#define Fm7     Eb5
+#define Fm8     F5
+#define Fm9     G5
+#define Fm10    Ab5
+#define Fm11    Bb5
+#define Fm12    C6
+#define Fm13    Db6
+#define Fm14    Eb6
+#define Fm15    F6
 
 #endif
 
