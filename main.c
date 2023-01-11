@@ -5,7 +5,9 @@
  * Created on December 1, 2022, 11:12 AM
  */
 
-#define TMR0RESET 6 // Interrupt every 1ms
+// Values for Timer0 to interrupt every 1ms
+#define TMR0RESET 6
+#define TMR0PRESCALE 0b001
 
 #define TMR2PRESCALE 64
 
@@ -25,7 +27,7 @@ unsigned int _buzzerCounter = 0;
 unsigned int _ledCounter = 0;
 
 // Song Specs
-#define BEAT_LENGTH 320 // 187.5bpm (smallest possible notes without de-sync are 64th )
+#define BEAT_LENGTH 320 // 187.5bpm (smallest possible notes without de-sync are 64th)
 #define LED_ON_DURATION 40
 
 // Modules
@@ -68,11 +70,11 @@ void main(void) {
     LED = 0;
 
     // Timer0 Config
-    OPTION_REGbits.PS = 0b011; // Prescaler is 16
+    OPTION_REGbits.PS = TMR0PRESCALE; // Set Timer0 prescaler
     OPTION_REGbits.T0SE = 0; // Interrupt on rising edge
     OPTION_REGbits.T0CS = 0; // Clock source is internal oscillator
-    INTCONbits.T0IF = 0; // Clear Timer0 flag
-    TMR0 = TMR0RESET; // Reset Timer0 to the preset reset value (6 for 1ms interrupts)
+    INTCONbits.T0IF = 0; // Clear Timer0 interrupt flag
+    TMR0 = TMR0RESET; // Clear Timer0 Register
 
     // Timer2 Config
     T2CONbits.T2CKPS = 0b11; // Prescaler is 64
