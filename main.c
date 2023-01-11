@@ -32,7 +32,6 @@ unsigned int _ledCounter = 0;
 
 // Modules
 #include "pwm.h"
-#include "pwm1.h"
 
 // Song Files
 #include "icinde-ask-var.h"
