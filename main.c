@@ -71,10 +71,6 @@ void main(void) {
     INTCONbits.T0IF = 0; // Clear Timer0 interrupt flag
     TMR0 = TMR0RESET; // Clear Timer0 Register
 
-    // Timer2 Config
-    T2CONbits.T2CKPS = 0b11; // Prescaler is 64
-    TMR2 = 0; // Clear Timer2 register
-
     // Enables
     INTCONbits.GIE = 1; // Global interrupt enable
     INTCONbits.T0IE = 1; // Timer0 interrupt enable
@@ -85,6 +81,7 @@ void main(void) {
 
     // Disables
     INTCONbits.T0IE = 0; // Timer0 interrupt disable
+    LED = 0;
     T2CONbits.TMR2ON = 0; // Timer2 disable
     pwm1_disable();
 
