@@ -14,8 +14,8 @@ void play_silence(unsigned int duration) {
     while (_buzzerCounter < (int) duration);
 }
 
-void play_note(unsigned char notePeriod, unsigned char prescaler, unsigned int duration) {
-    T2CONbits.T2CKPS = prescaler;
+void play_note(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
+    T2CON = TMR2ON_T2CKPS;
     PR2 = notePeriod;
     pwm1_set_volume(VOLUME);
     pwm1_enable();
@@ -24,8 +24,8 @@ void play_note(unsigned char notePeriod, unsigned char prescaler, unsigned int d
     pwm1_disable();
 }
 
-void play_note_cut(unsigned char notePeriod, unsigned char prescaler, unsigned int duration) {
-    T2CONbits.T2CKPS = prescaler;
+void play_note_cut(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
+    T2CON = TMR2ON_T2CKPS;
     PR2 = notePeriod;
     pwm1_set_volume(VOLUME);
     pwm1_enable();
