@@ -8,13 +8,13 @@
 #ifndef MUSIC_H
 #define	MUSIC_H
 
-void play_silence(unsigned int duration) {
+inline void play_silence(unsigned int duration) {
     pwm1_set_volume(0);
     _buzzerCounter = 0;
     while (_buzzerCounter != duration);
 }
 
-void play_note(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
+inline void play_note(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
     T2CON = TMR2ON_T2CKPS;
     PR2 = notePeriod;
     pwm1_set_volume(VOLUME);
@@ -24,7 +24,7 @@ void play_note(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned i
     pwm1_disable();
 }
 
-void play_note_cut(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
+inline void play_note_cut(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
     T2CON = TMR2ON_T2CKPS;
     PR2 = notePeriod;
     pwm1_set_volume(VOLUME);

@@ -8,7 +8,7 @@
 #include "music.h"
 #include "f-minor-scale.h"
 
-void intro(void) {
+inline void intro(void) {
     // Bar 0
     play_silence(BEAT_LENGTH * 5);
     play_note(Fm2, BEAT_LENGTH); // Ca-
@@ -80,7 +80,7 @@ void intro(void) {
     play_silence(BEAT_LENGTH * 12);
 }
 
-void verse(void) {
+inline void verse(void) {
     // Bar 16
     play_silence(BEAT_LENGTH * 5);
     play_note(Fm2, BEAT_LENGTH); // Ya-
@@ -150,7 +150,7 @@ void verse(void) {
     play_silence(BEAT_LENGTH / 2);
 }
 
-void pre_chorus(void) {
+inline void pre_chorus(void) {
     // Bar 30
     play_silence(BEAT_LENGTH * 3);
     play_note_cut(Fm4, BEAT_LENGTH * 2); // Öz
@@ -215,7 +215,7 @@ void pre_chorus(void) {
     play_silence(BEAT_LENGTH * 2);
 }
 
-void chorus(void) {
+inline void chorus(void) {
     // Chorus (Half time, written as 12/8 bars)
     for (int i = 0; i < 2; i++) {
         // Bar 1
@@ -272,7 +272,7 @@ void chorus(void) {
     }
 }
 
-void outro(void) {
+inline void outro(void) {
     // Bar 1
     play_note_cut(Fm3, BEAT_LENGTH); // İ-
     play_note_cut(Fm3, BEAT_LENGTH); // çin-
@@ -324,7 +324,7 @@ void outro(void) {
     play_silence(BEAT_LENGTH * 2);
 }
 
-void play_song(void) {
+inline void play_song(void) {
     intro();
     verse();
     pre_chorus();
