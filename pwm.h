@@ -11,7 +11,7 @@
 #define PWM_MAX_DUTY 1023
 
 unsigned int pwm_calculate_duty(unsigned int duty) {
-    return (unsigned int) ((duty * 4 * (PR2 + 1)) / PWM_MAX_DUTY);
+    return (duty * 4 * (PR2 + 1)) / PWM_MAX_DUTY;
 }
 
 #define pwm1_enable() CCP1CONbits.CCP1M3 = 1; CCP1CONbits.CCP1M2 = 1; TRISCbits.TRISC2 = 0
