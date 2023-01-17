@@ -19,8 +19,8 @@
 #define LED RC1
 
 // Counters
-unsigned int _buzzerCounter = 0;
-unsigned int _ledCounter = 0;
+unsigned volatile int _buzzerCounter = 0;
+unsigned volatile int _ledCounter = 0;
 
 // Song Specs
 #define BEAT_LENGTH 320 // 187.5bpm (smallest possible notes without de-sync are 64th)
