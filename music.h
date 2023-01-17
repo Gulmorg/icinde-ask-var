@@ -11,7 +11,7 @@
 void play_silence(unsigned int duration) {
     pwm1_set_volume(0);
     _buzzerCounter = 0;
-    while (_buzzerCounter < (int) duration);
+    while (_buzzerCounter != duration);
 }
 
 void play_note(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned int duration) {
@@ -20,7 +20,7 @@ void play_note(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsigned i
     pwm1_set_volume(VOLUME);
     pwm1_enable();
     _buzzerCounter = 0;
-    while (_buzzerCounter < duration);
+    while (_buzzerCounter != duration);
     pwm1_disable();
 }
 
@@ -30,10 +30,10 @@ void play_note_cut(unsigned char notePeriod, unsigned char TMR2ON_T2CKPS, unsign
     pwm1_set_volume(VOLUME);
     pwm1_enable();
     _buzzerCounter = 0;
-    while (_buzzerCounter < duration - 50);
+    while (_buzzerCounter != duration - 50);
     pwm1_disable();
     _buzzerCounter = 0;
-    while (_buzzerCounter < 50);
+    while (_buzzerCounter != 50);
 }
 
 #endif
