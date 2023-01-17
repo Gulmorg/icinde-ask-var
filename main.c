@@ -75,6 +75,7 @@ void main(void) {
     INTCONbits.GIE = 1; // Global interrupt enable
     INTCONbits.T0IE = 1; // Timer0 interrupt enable
     T2CONbits.TMR2ON = 1; // Timer2 enable
+    TRISCbits.TRISC2 = 0; // C2 Pin is output for pwm
     pwm1_enable();
 
     play_song();

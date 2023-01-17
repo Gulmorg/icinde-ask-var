@@ -10,7 +10,7 @@
 
 #define PWM_MAX_DUTY 1023
 
-#define pwm1_enable() CCP1CONbits.CCP1M3 = 1; CCP1CONbits.CCP1M2 = 1; TRISCbits.TRISC2 = 0
+#define pwm1_enable() CCP1CONbits.CCP1M3 = 1; CCP1CONbits.CCP1M2 = 1
 #define pwm1_disable() CCP1CONbits.CCP1M = 0
 
 void pwm1_set_volume(unsigned int duty) {
